@@ -3,10 +3,25 @@
   "name": "random-numbers",
   "version": "0.0.0",
   "license": "MIT",
+  "description": "Electron Preact Material Design",
+  "homepage": "./",
+  "main": "electron/main.js",
+  "build": {
+    "productName": "Random Numbers",
+    "appId": "com.dizzy.nums",
+    "electronVersion": "13.1.7",
+    "files": [
+      "build/**/*",
+      "electron/*"
+  ]},
   "scripts": {
     "build": "preact build",
     "serve": "sirv build --port 8080 --cors --single",
-    "dev": "preact watch",
+    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s pdev",
+    "electron": "electron .",
+    "ebuild": "npm run build && node_modules/.bin/build",
+    "pdev": "preact watch",
+    "dev": "nf start",
     "lint": "eslint src",
     "test": "jest"
   },
