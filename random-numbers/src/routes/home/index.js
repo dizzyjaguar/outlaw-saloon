@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { generateNumbers } from '../../utils/numberGenerator';
+import NumInput from '../../components/NumInput';
 import style from './style.css';
 
 const Home = () => {
@@ -10,9 +11,9 @@ const Home = () => {
 	//need to work on the function so that it only returns the number and a few numbers past the decemil
 	useEffect(() => {
 		setNumberList(generateNumbers(3, 1, 9))
-		console.log(numberList)
 	}, [])
 	
+	console.log(numberList)
 	// for some reason this is not working on the return 
 	const numberNodes = numberList.map(num => 
 		{ <li>{num}</li>
@@ -23,6 +24,7 @@ const Home = () => {
 	<div class={style.home}>
 		
 		<h1>hi</h1>
+		<NumInput />
 		<ul>
 			{
 			numberList.map(num => {
