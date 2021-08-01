@@ -10,21 +10,25 @@ const Home = () => {
 	//need to work on the function so that it only returns the number and a few numbers past the decemil
 	useEffect(() => {
 		setNumberList(generateNumbers(3, 1, 9))
+		console.log(numberList)
 	}, [])
-
+	
 	// for some reason this is not working on the return 
-	const numberNodes = () => {
-		numberList.map(num => {
-			return <li>{num}</li>
-		})
-	}
+	const numberNodes = numberList.map(num => 
+		{ <li>{num}</li>
+	});
+	
 	
 	return (
 	<div class={style.home}>
 		
 		<h1>hi</h1>
 		<ul>
-			{ numberNodes }
+			{
+			numberList.map(num => {
+				return <li>{num}</li>
+			})
+		}
 		</ul>
 	</div>
 	)
