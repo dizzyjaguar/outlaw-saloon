@@ -9,21 +9,13 @@ function getRandomNumBetweenTwoNums(min, max) {
   return Math.random() * (max - min) + min;
 };
 
-// console.log(getRandomNumBetweenTwoNums(4, 9));
 
-// how many baskets
-const cannabisBasket = Array(74);
-
-// generate the numbers for each basket
-// for(let i = 0; i <= cannabisBasket.length - 1; i++) {
-//   cannabisBasket[i] = getRandomNumBetweenTwoNums(.3, 1.1)
-// };
 
 export const generateNumbers = (numOfNums, lowNum, highNum) => {
   let bagOfNumbers = Array(numOfNums);
 
   for(let i = 0; i <= bagOfNumbers.length - 1; i++) {
-    bagOfNumbers[i] = getRandomNumBetweenTwoNums(lowNum, highNum)
+    bagOfNumbers[i] = getRandomNumBetweenTwoNums(lowNum, highNum).toFixed(3)
   };
 
   return bagOfNumbers;
