@@ -18,7 +18,7 @@ const Home = () => {
 			return <li>{num}</li>
 		})
 	}
-
+	
 	return (
 	<div class={style.home}>
 		

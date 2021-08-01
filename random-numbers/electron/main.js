@@ -15,7 +15,9 @@ function createWindow() {
   win = new BrowserWindow({
     width: 800,
     height: 600
-  });
+  })
+  win.webContents.openDevTools()
+  ;
 
   const startUrl = process.env.ELECTRON_START_URL || url.format({
     pathname: path.join(__dirname, '/../build/index.html'),
@@ -30,7 +32,10 @@ function createWindow() {
   });
 }
 
-app.on('ready', createWindow);
+// app.on('ready', createWindow, openDevTools());
+app.whenReady().then(() => {
+  createWindow()
+})
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
