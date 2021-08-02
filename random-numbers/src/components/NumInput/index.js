@@ -22,7 +22,7 @@ const NumInput = () => {
   
   return (
     <div class={style.div}>
-      <p>numInput</p>
+      <h1>What do ya' need partner?</h1>
       <form class={style.form}>
         <label>
           How Many <br/>
@@ -36,6 +36,7 @@ const NumInput = () => {
           High Number <br/>
         <input type='number' value={values.highNum} onInput={onChange} />
         </label> <br/>
+        <button>Enter</button>
       </form>
     </div>
   )
