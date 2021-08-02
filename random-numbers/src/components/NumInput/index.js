@@ -4,28 +4,10 @@ import style from './style.css';
 
 
 const NumInput = ({values, onChange, onSubmit}) => {
-
-  // const [values, setValues] = useState({
-  //   howMany: 0,
-  //   lowNum: 0,
-  //   highNum: 0
-  // });
-
-  // const onChange = (event) => {
-  //   const { target } = event;
-  //   const { name, value } = target;
-    
-  //   setValues({ ...values, [name]: value });
-  // };
-
-  // const onSubmit = (event) => {
-    
-  // }
-  
   
   return (
     <div class={style.div}>
-      <h1>What do ya' need partner?</h1>
+      <h1>Howdy what do ya' need partner?</h1>
       <form class={style.form}>
         <label>
           How Many <br/>
@@ -33,11 +15,11 @@ const NumInput = ({values, onChange, onSubmit}) => {
         </label> <br/>
         <label>
           Low Number <br/>
-        <input type='number' value={values.lowNum} onInput={onChange} />
+        <input type='number' name='lowNum' value={values.lowNum} onInput={onChange} />
         </label> <br/>
         <label>
           High Number <br/>
-        <input type='number' value={values.highNum} onInput={onChange} />
+        <input type='number' name='highNum' value={values.highNum} onInput={onChange} />
         </label> <br/>
         <button onClick={onSubmit}>Enter</button>
       </form>
