@@ -1,5 +1,6 @@
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
+import linkState from 'linkstate';
 
 const NumInput = () => {
 
@@ -12,28 +13,28 @@ const NumInput = () => {
   const onChange = (event) => {
     const { target } = event;
     const { name, value } = target;
-    event.linkstate()
+    
 
     setValues({ ...values, [name]: value });
   };
+  // const onChange = linkState(this, 'foo')
   
-
   return (
     <>
     <p>numInput</p>
     <form>
       <label>
         How Many
-      <input type='number' value={values.howMany} onInput={onChange} />
+      <input type='number' name='howMany' value={values.howMany} onInput={onChange} />
       </label>
-      <label>
+      {/* <label>
         Low Number
       <input type='number' value={values.lowNum} onInput={onChange} />
       </label>
       <label>
         High Number
       <input type='number' value={values.highNum} onInput={onChange} />
-      </label>
+      </label> */}
     </form>
     </>
   )
