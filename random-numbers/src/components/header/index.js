@@ -4,7 +4,7 @@ import style from './style.css';
 
 const Header = () => (
 	<header class={style.header}>
-		<h1>Random Numbers</h1>
+		<h1>Outlaw Saloon</h1>
 		<nav>
 			{/* <Link activeClassName={style.active} href="/">Home</Link> */}
 		</nav>

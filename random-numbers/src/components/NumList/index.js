@@ -1,10 +1,16 @@
 import { h } from 'preact';
 
-const NumList = () => {
+const NumList = ({numberList}) => {
   
   return (
     <>
-      Num List
+      <ul>
+			  {
+			  numberList.map(num => {
+				  return <li>{num}</li>
+			  })
+		    }
+		  </ul>
     </>
   )
 }

@@ -17,39 +17,25 @@ const Home = () => {
     const { target } = event;
     const { name, value } = target;
     
-    setValues({ ...values, [name]: value });
+    setValues({ ...values, [name]: Number(value) });
   };
 
-  const onSubmit = (e) => {
-    console.log(numberList)
-		
-		e.preventDefault();
-  }
+	console.log(typeof values.lowNum)
 
-	//need to work on the function so that it only returns the number and a few numbers past the decemil
-	useEffect(() => {
-		setNumberList(generateNumbers(3, 1, 9))
-	}, [])
-	
-	
-	// for some reason this is not working on the return 
-	const numberNodes = numberList.map(num => 
-		{ <li>{num}</li>
-	});
+  const onSubmit = (e) => {
+		// let list = generateNumbers(values.howMany, values.lowNum, values.highNum)
+    // setNumberList(list)
+		e.preventDefault();
+		console.log(generateNumbers(values.howMany, values.lowNum, values.highNum))
+  }
 	
 	
 	return (
 	<div class={style.home}>
 		
 		<NumInput values={values} setValues={setValues} onChange={onChange} onSubmit={onSubmit} />
-		<NumList />
-		<ul>
-			{
-			numberList.map(num => {
-				return <li>{num}</li>
-			})
-		}
-		</ul>
+		<NumList numberList={numberList} />
+		
 	</div>
 	)
 };
