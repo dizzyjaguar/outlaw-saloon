@@ -1,28 +1,20 @@
 import { h } from 'preact';
-import { useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { CSVLink, CSVDownload } from "react-csv";
+import Csv from '../Csv';
 import style from './style.css';
 
 
-const NumInput = ({values, onChange, onSubmit}) => {
+const NumInput = ({numberList, values, onChange, onSubmit}) => {
+  const [dataState, setDataState] = useState([['The Number']])
+  
+  
+  useEffect(() => {
+    let data = [['The Number']]
+    numberList.forEach(num => data.push(new Array(num)))
+    setDataState(data)
+  }, [numberList])
 
-  const data = [ 
-    ["firstname", "lastname", "email"],
-  ["Ahmed", "Tomi", "ah@smthing.co.com"],
-  ["Raed", "Labes", "rl@smthing.co.com"],
-  ["Yezzi", "Min l3b", "ymin@cocococo.com"]
-  ]
-
-  const head = [
-    {
-      id: 'first',
-      displayName: 'First column',
-    },
-    {
-      id: 'second',
-      displayName: 'Second column',
-    },
-  ]
   
   return (
     <div class={style.div}>
@@ -42,7 +34,7 @@ const NumInput = ({values, onChange, onSubmit}) => {
         </label> <br/>
         <button onClick={onSubmit}>Enter</button>
       </form> <br/>
-      <CSVLink data={data}>Download me</CSVLink>;
+      <Csv data={dataState} />
     </div>
   )
 }

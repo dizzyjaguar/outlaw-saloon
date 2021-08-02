@@ -33,7 +33,7 @@ const Home = () => {
 	return (
 	<div class={style.home}>
 		
-		<NumInput values={values} setValues={setValues} onChange={onChange} onSubmit={onSubmit} />
+		<NumInput numberList={numberList} values={values} setValues={setValues} onChange={onChange} onSubmit={onSubmit} />
 		<NumList numberList={numberList} />
 		
 	</div>
