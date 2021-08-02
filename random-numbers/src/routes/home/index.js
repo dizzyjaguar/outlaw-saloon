@@ -6,15 +6,32 @@ import style from './style.css';
 import NumList from '../../components/NumList';
 
 const Home = () => {
-	// this should eventually generate a certain amount of random numbers between 2 given numbers, list them out and then maybe somehow export them to be easily applied to a csv file 
 	const [numberList, setNumberList] = useState([])
+	const [values, setValues] = useState({
+    howMany: 0,
+    lowNum: 0,
+    highNum: 0
+  });
+
+  const onChange = (event) => {
+    const { target } = event;
+    const { name, value } = target;
+    
+    setValues({ ...values, [name]: value });
+  };
+
+  const onSubmit = (e) => {
+    console.log(numberList)
+		
+		e.preventDefault();
+  }
 
 	//need to work on the function so that it only returns the number and a few numbers past the decemil
 	useEffect(() => {
 		setNumberList(generateNumbers(3, 1, 9))
 	}, [])
 	
-	console.log(numberList)
+	
 	// for some reason this is not working on the return 
 	const numberNodes = numberList.map(num => 
 		{ <li>{num}</li>
@@ -24,7 +41,7 @@ const Home = () => {
 	return (
 	<div class={style.home}>
 		
-		<NumInput />
+		<NumInput values={values} setValues={setValues} onChange={onChange} onSubmit={onSubmit} />
 		<NumList />
 		<ul>
 			{

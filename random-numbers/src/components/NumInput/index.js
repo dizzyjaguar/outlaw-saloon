@@ -3,21 +3,24 @@ import { useState } from 'preact/hooks';
 import style from './style.css';
 
 
-const NumInput = () => {
+const NumInput = ({values, onChange, onSubmit}) => {
 
-  const [values, setValues] = useState({
-    howMany: 0,
-    lowNum: 0,
-    highNum: 0
-  });
+  // const [values, setValues] = useState({
+  //   howMany: 0,
+  //   lowNum: 0,
+  //   highNum: 0
+  // });
 
-  const onChange = (event) => {
-    const { target } = event;
-    const { name, value } = target;
+  // const onChange = (event) => {
+  //   const { target } = event;
+  //   const { name, value } = target;
     
+  //   setValues({ ...values, [name]: value });
+  // };
 
-    setValues({ ...values, [name]: value });
-  };
+  // const onSubmit = (event) => {
+    
+  // }
   
   
   return (
@@ -36,7 +39,7 @@ const NumInput = () => {
           High Number <br/>
         <input type='number' value={values.highNum} onInput={onChange} />
         </label> <br/>
-        <button>Enter</button>
+        <button onClick={onSubmit}>Enter</button>
       </form>
     </div>
   )
