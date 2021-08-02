@@ -1,9 +1,28 @@
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
+import { CSVLink, CSVDownload } from "react-csv";
 import style from './style.css';
 
 
 const NumInput = ({values, onChange, onSubmit}) => {
+
+  const data = [ 
+    ["firstname", "lastname", "email"],
+  ["Ahmed", "Tomi", "ah@smthing.co.com"],
+  ["Raed", "Labes", "rl@smthing.co.com"],
+  ["Yezzi", "Min l3b", "ymin@cocococo.com"]
+  ]
+
+  const head = [
+    {
+      id: 'first',
+      displayName: 'First column',
+    },
+    {
+      id: 'second',
+      displayName: 'Second column',
+    },
+  ]
   
   return (
     <div class={style.div}>
@@ -22,7 +41,8 @@ const NumInput = ({values, onChange, onSubmit}) => {
         <input type='number' name='highNum' value={values.highNum} onInput={onChange} />
         </label> <br/>
         <button onClick={onSubmit}>Enter</button>
-      </form>
+      </form> <br/>
+      <CSVLink data={data}>Download me</CSVLink>;
     </div>
   )
 }
