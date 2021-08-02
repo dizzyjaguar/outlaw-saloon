@@ -9,8 +9,6 @@ function getRandomNumBetweenTwoNums(min, max) {
   return Math.random() * (max - min) + min;
 };
 
-
-
 export const generateNumbers = (numOfNums, lowNum, highNum) => {
   let bagOfNumbers = Array(numOfNums);
 
@@ -22,10 +20,7 @@ export const generateNumbers = (numOfNums, lowNum, highNum) => {
 };
 
 
-
-// console.log(`----here is the random cannabis weights----`, cannabisBasket)
+//------------------
 // const reducer = (acc, val) => acc + val;
-
-
-// const totalDreamBerry = cannabisBasket.reduce(reducer);
-// console.log(`the total weight is, ${totalDreamBerry}`);
+// const totalNumber = cannabisBasket.reduce(reducer);
+// console.log(`the total weight is, ${totalNumber}`);

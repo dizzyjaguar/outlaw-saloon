@@ -23,10 +23,10 @@ const Home = () => {
 	console.log(typeof values.lowNum)
 
   const onSubmit = (e) => {
-		// let list = generateNumbers(values.howMany, values.lowNum, values.highNum)
-    // setNumberList(list)
+		let list = generateNumbers(values.howMany, values.lowNum, values.highNum)
+    setNumberList(list)
 		e.preventDefault();
-		console.log(generateNumbers(values.howMany, values.lowNum, values.highNum))
+		// console.log(generateNumbers(values.howMany, values.lowNum, values.highNum))
   }
 	
 	
