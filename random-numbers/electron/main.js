@@ -16,7 +16,8 @@ function createWindow() {
     width: 800,
     height: 600
   })
-  win.webContents.openDevTools()
+  // this is for having devTools open
+  // win.webContents.openDevTools()
   ;
 
   const startUrl = process.env.ELECTRON_START_URL || url.format({

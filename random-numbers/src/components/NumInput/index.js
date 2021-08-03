@@ -5,7 +5,7 @@ import Csv from '../Csv';
 import style from './style.css';
 
 
-const NumInput = ({numberList, values, onChange, onSubmit}) => {
+const NumInput = ({numberList, values, onChange, onSubmit, toggleList}) => {
   const [dataState, setDataState] = useState([['The Number']])
   
   
@@ -14,7 +14,7 @@ const NumInput = ({numberList, values, onChange, onSubmit}) => {
     numberList.forEach(num => data.push(new Array(num)))
     setDataState(data)
   }, [numberList])
-
+  
   
   return (
     <div class={style.div}>
@@ -34,7 +34,8 @@ const NumInput = ({numberList, values, onChange, onSubmit}) => {
         </label> <br/>
         <button onClick={onSubmit}>Enter</button>
       </form> <br/>
-      <Csv data={dataState} />
+      <Csv data={dataState} /> <br/> <br/>
+      <a href="" onClick={toggleList}>Show list</a>
     </div>
   )
 }

@@ -7,6 +7,7 @@ import NumList from '../../components/NumList';
 
 const Home = () => {
 	const [numberList, setNumberList] = useState([])
+	const [showList, setShowList] = useState(false)
 	const [values, setValues] = useState({
     howMany: 0,
     lowNum: 0,
@@ -20,21 +21,26 @@ const Home = () => {
     setValues({ ...values, [name]: Number(value) });
   };
 
-	console.log(typeof values.lowNum)
-
   const onSubmit = (e) => {
 		let list = generateNumbers(values.howMany, values.lowNum, values.highNum)
     setNumberList(list)
 		e.preventDefault();
-		// console.log(generateNumbers(values.howMany, values.lowNum, values.highNum))
-  }
+  };
+
+	const toggleList = (e) => {
+		showList === false ? setShowList(true) : setShowList(false)
+		e.preventDefault();
+	};
 	
-	
+	// make the number list hidden and a button or text to reveal the numbers so they dont need to take up space if not wanted
 	return (
 	<div class={style.home}>
 		
-		<NumInput numberList={numberList} values={values} setValues={setValues} onChange={onChange} onSubmit={onSubmit} />
-		<NumList numberList={numberList} />
+		<NumInput numberList={numberList} values={values} setValues={setValues} onChange={onChange} onSubmit={onSubmit} toggleList={toggleList} />
+		
+		{
+			showList === true ? <NumList numberList={numberList} /> : <> </>
+		}
 		
 	</div>
 	)

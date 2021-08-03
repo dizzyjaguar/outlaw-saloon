@@ -7,7 +7,7 @@
   "homepage": "./",
   "main": "electron/main.js",
   "build": {
-    "productName": "Random Numbers",
+    "productName": "Outlaw Saloon",
     "appId": "com.dizzy.nums",
     "electronVersion": "13.1.7",
     "files": [
