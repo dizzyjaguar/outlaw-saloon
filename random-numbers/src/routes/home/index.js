@@ -32,17 +32,15 @@ const Home = () => {
 		e.preventDefault();
 	};
 	
-	// make the number list hidden and a button or text to reveal the numbers so they dont need to take up space if not wanted
 	return (
-	<div class={style.home}>
-		
-		<NumInput numberList={numberList} values={values} setValues={setValues} onChange={onChange} onSubmit={onSubmit} toggleList={toggleList} />
-		
-		{
-			showList === true ? <NumList numberList={numberList} /> : <> </>
-		}
-		
-	</div>
+		<div class={style.home}>	
+			<NumInput numberList={numberList} values={values} setValues={setValues} onChange=	{onChange} onSubmit={onSubmit} toggleList={toggleList} />
+
+			{
+				showList === true ? <NumList numberList={numberList} /> : <> </>
+			}
+
+		</div>
 	)
 };
 

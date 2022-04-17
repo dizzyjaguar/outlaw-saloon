@@ -17,3 +17,18 @@
 a {
   color: blue;
 }
+
+button {
+  background-color: transparent;
+  border-radius: 2px;
+  color: #3faa63;
+  border: 1px solid #3faa63;
+  margin: .5em;
+  transition-duration: 0.3s;
+}
+
+button:hover {
+  background-color: #29662b; /* Green */
+  color: white;
+  cursor: pointer;
+}
